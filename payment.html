@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    The "lang" attribute is set to "en" for English.
+    The meta charset ensures the browser uses UTF-8 encoding.
+  -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose Your Plan</title>
+  <!--
+    We load the Montserrat font from Google Fonts.
+  -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /*
+      We define CSS custom properties (variables) for color management.
+      This makes it easier to adjust them later if needed.
+    */
+    :root {
+      --gradient-start: #66BB6A;
+      --gradient-end: #FFA726;
+      --plan-bg: #fff;
+      --plan-text: #444;
+      --button-bg: #26A69A;
+      --button-bg-hover: #00796B;
+      --checkmark-color: #66BB6A;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+      margin: 0;
+      padding: 40px;
+      color: #fff;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 40px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+
+    main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .plan {
+      background: var(--plan-bg);
+      color: var(--plan-text);
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      flex: 1 1 250px;
+      max-width: 300px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .plan h2 {
+      font-weight: 600;
+      font-size: 1.6em;
+      margin-bottom: 10px;
+    }
+
+    .plan .price {
+      font-size: 2em;
+      margin: 10px 0;
+      font-weight: 600;
+    }
+
+    .plan .description {
+      font-size: 0.95em;
+      margin-bottom: 15px;
+      color: #666;
+      text-align: center;
+    }
+
+    .plan ul {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    .plan ul li {
+      position: relative;
+      padding-left: 20px;
+      margin: 10px 0;
+    }
+
+    .plan ul li::before {
+      content: '✔';
+      position: absolute;
+      left: 0;
+      color: var(--checkmark-color);
+    }
+
+    .plan button {
+      background-color: var(--button-bg);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 12px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .plan button:hover {
+      background-color: var(--button-bg-hover);
+    }
+
+    footer {
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Our Subscription Plans</h1>
+  </header>
+
+  <main>
+    <!-- Basic Plan -->
+    <section class="plan">
+      <h2>Basic</h2>
+      <p class="price">$4.99 (One-Time)</p>
+      <p class="description">
+        Perfect for dipping your toes in the water of the chatbot world! 
+        A one time payment for 5 days of access to one chatbot with 3 uses a day.
+      </p>
+      <ul>
+        <li>5 days of access</li>
+        <li>3 uses per day</li>
+        <li>One chatbot</li>
+        <li>Essential support</li>
+      </ul>
+      <button onclick="window.location.href='https://buy.stripe.com/4gwbKb0OA14ccXCfYY'">
+        Purchase Basic
+      </button>
+    </section>
+    
+    <!-- Plus Plan -->
+    <section class="plan">
+      <h2>Plus</h2>
+      <p class="price">$14.99/month</p>
+      <p class="description">
+        This plan excellent for those who have a specific project in mind. This plan includes permanent access to one fixed chatbot with 10 uses a day.
+      </p>
+      <ul>
+        <li>Permanent access</li>
+        <li>10 uses per day</li>
+        <li>One fixed chatbot</li>
+      </ul>
+      <button onclick="window.location.href='https://buy.stripe.com/bIY7tV8h214cf5KfYZ'">
+        Subscribe to Plus
+      </button>
+    </section>
+
+    <!-- Pro Plan -->
+    <section class="plan">
+      <h2>Pro</h2>
+      <p class="price">$29.99/month</p>
+      <p class="description">
+        This plan is excellent for tech companies, portfolio managers and more! This plan will include unlimited chatbots, including chatbots in the making, and unlimited usage.
+      </p>
+      <ul>
+        <li>Unlimited chatbots (including chatbots in the making)</li>
+        <li>Unlimited usage</li>
+        <li>Tailored for tech companies and portfolio managers</li>
+      </ul>
+      <button onclick="window.location.href='https://buy.stripe.com/00gg0r0OAfZ6f5K8wy'">
+        Subscribe to Pro
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> Chatbot Hub</p>
+  </footer>
+
+  <script>
+    // Automatically update the footer year to the current year.
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
